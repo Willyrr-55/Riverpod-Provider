@@ -22,11 +22,18 @@ class _HomeScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
+        
         _CustomListTile(
           title: 'State Provider',
           subTitle: 'Un estado simple', 
           location: '/state-provider', 
-        )
+        ),
+        
+        _CustomListTile(
+          title: 'Future Provider',
+          subTitle: 'Un simple future + Famiy', 
+          location: '/future-provider', 
+        ),
       ],
     );
   }

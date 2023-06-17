@@ -1,6 +1,23 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:river_app/config/config.dart';
 
-final pokemonProvider = FutureProvider<String>((ref) async{
-  return 'Ditto';
+final pokemonIdProvider = StateProvider<int>((ref){
+  return 1;
 });
+
+final pokemonNameProvider = FutureProvider<String>((ref) async{
+
+  final int id = ref.watch(pokemonIdProvider);
+
+  final name = await PokemonServices.getpokemonName(id);
+
+  return name;
+});
+
+// final pokemonNameProvider = FutureProvider.family<String, int>((ref, id) async{
+
+//   final name = await PokemonServices.getpokemonName(id);
+
+//   return name;
+// });
